@@ -12,18 +12,12 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        val login = findViewById<EditText>(R.id.login)
-        val password = findViewById<EditText>(R.id.password)
         val loginButton = findViewById<Button>(R.id.loginButton)
         val registrationButton = findViewById<Button>(R.id.registrationButton)
 
         loginButton.setOnClickListener {
-            val loginText = login.text.toString()
-            val passwordText = password.text.toString()
-
             val intent = Intent(applicationContext, ProfileActivity::class.java)
-            intent.putExtra("ifFromLogin", loginText)
-            intent.putExtra("ifFromLogin1", passwordText)
+            intent.putExtra("bvFromLogActivity",true)
             startActivity(intent)
         }
 

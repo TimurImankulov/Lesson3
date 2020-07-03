@@ -9,24 +9,45 @@ class ProfileActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
+        val name = "Ilon"
+        val lastName = "Mask"
 
-        val loginFromLoginActivity = intent.getStringExtra("ifFromLogin")
         val textView1 = findViewById<TextView>(R.id.profileTextView1)
-        textView1.text = loginFromLoginActivity
-
-        val passwordFromFirstActivity = intent.getStringExtra("ifFromLogin1")
         val textView2 = findViewById<TextView>(R.id.profileTextView2)
-        textView2.text = passwordFromFirstActivity
+        val textView3 = findViewById<TextView>(R.id.profileTextView3)
 
-        val loginFromRegistrationActivity = intent.getStringExtra("ifFromRegistraton")
-        val textView3 = findViewById<TextView>(R.id.profileTextView1)
-        textView3.text = loginFromRegistrationActivity
+        val chData = intent.getBooleanExtra("bvFromLogActivity", false)
 
-        val passwordFromRegistrationActivity = intent.getStringExtra("ifFromRegistraton1")
-        val textView4 = findViewById<TextView>(R.id.profileTextView2)
-        textView4.text = passwordFromRegistrationActivity
+
+        if (chData){
+            textView1.text = name
+            textView2.text = lastName
+            textView3.text = "Переход с LoginActivity"
+        } else{
+            val loginFromRegistrationActivity = intent.getStringExtra("ifFromRegistraton")
+            textView1.text = loginFromRegistrationActivity
+
+            val passwordFromRegistrationActivity = intent.getStringExtra("ifFromRegistraton1")
+            textView2.text = passwordFromRegistrationActivity
+
+            textView3.text = "Переход с RegistratonActivity"
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
     }
 }
+
